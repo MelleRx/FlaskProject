@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kukulidi Travel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+<header class="container mt-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light;" style="background-color: #F5F5F5;">
+        <a class="navbar-brand" href="/">Kukulidi Travel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {% for key, value in departures.items() %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="/departure/{{key}}">{{ value }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+</header>
+<main class="container">
+    <section class="mt-3 pb-5">
+        <h1 class="display-3 mt-4"><b>{{ tours["title"] }} {{ tours["stars"] }}&#9733;</b></h1>
+        <!-- HERO -->
+        <p><a href="/departure/{{ city }}">Назад</a></p>
+        <p class="lead"><b>{{ tours["country"] }} {{ departures[tours["departure"]] }} {{ tours["nights"] }} ночей</b></p>
+        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=
+      format&fit=crop&w=800&q=60" class="w-75" alt="">
+        <p class="my-4 w-75">{{ tours["description"] }}</p>
+        <a href="https://www.instagram.com/_kukulidik_/" class="btn btn-success btn-lg">Купить тур за {{ tours["price"]
+            }}</a>
+    </section>
+</main>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
