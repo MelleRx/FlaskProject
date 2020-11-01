@@ -33,8 +33,7 @@
         <!-- HERO -->
         <p><a href="/departure/{{ city }}">Назад</a></p>
         <p class="lead"><b>{{ tours["country"] }} {{ departures[tours["departure"]] }} {{ tours["nights"] }} ночей</b></p>
-        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=
-      format&fit=crop&w=800&q=60" class="w-75" alt="">
+        <img src="{{ tours['picture'] }}" class="w-75" alt="">
         <p class="my-4 w-75">{{ tours["description"] }}</p>
         <a href="https://www.instagram.com/_kukulidik_/" class="btn btn-success btn-lg">Купить тур за {{ tours["price"]
             }}</a>
