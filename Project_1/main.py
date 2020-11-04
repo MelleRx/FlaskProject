@@ -93,4 +93,5 @@ def render_server_error(error):
     return render_template("error.html", error=error), 500
 
 
-app.run()
+if __name__ == '__main__':
+    app.run()
