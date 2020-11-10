@@ -14,8 +14,7 @@
                 <img src="{{ tours[i]['picture'] }}" class="card-img-top img-fluid" style="height: 200px;" alt="">
                 <div class="card-body">
                     <h2 class="h5 card-title">{{ tours[i]["title"] }} {{ tours[i]["stars"] }}&#9733;</h2>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <p class="card-text">{{ tours[i]["description"]|truncate(75) }}</p>
                     <h2 class="h5 card-title" style="font-size: 18px">{{ tours[i]["date"] }},
                         {{ tours[i]["nights"] }} ночей, {{ tours[i]["price"] }} Р</h2>
                     <a href="/tours/{{ tours[i]['title'].split(' ')[0] }}" class="btn btn-sm btn-primary">Подробнее</a>
