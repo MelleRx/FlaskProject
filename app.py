@@ -1,14 +1,14 @@
 import sys
+from random import shuffle
 
 from flask import Flask, render_template
-from random import shuffle
 
 import data
 
 app = Flask(__name__)
 
 
-def correctWord(counter):
+def correct_word(counter):
     if counter % 10 == 1 and counter % 100 != 11:
         return str(counter) + " тур"
     elif counter % 10 == 2 and counter % 100 != 12 or counter % 10 == 3 and counter % 100 != 13 or counter % 10 == 4 \
@@ -18,13 +18,13 @@ def correctWord(counter):
         return str(counter) + " туров"
 
 
-def randomTour(tours):
+def random_tour(tours):
     lst = list(range(1, len(tours.keys())))
     shuffle(lst)
     return lst
 
 
-def countTours(tours, city):
+def count_tours(tours, city):
     counter = 0
     for i in range(1, len(tours.keys())):
         if tours[i]["departure"] == city:
@@ -32,33 +32,31 @@ def countTours(tours, city):
     return counter
 
 
-def minAndMaxNights(tours, city):
-    maximum = -1
-    minimal = sys.maxsize
+def min_and_max_nights(tours, city):
+    maximum = float("-inf")
+    minimal = float("inf")
     for i in range(1, len(tours.keys())):
         if tours[i]["departure"] == city and tours[i]["nights"] > maximum:
             maximum = tours[i]["nights"]
         if tours[i]["departure"] == city and tours[i]["nights"] < minimal:
             minimal = tours[i]["nights"]
-    tmp = [minimal, maximum]
-    return tmp
+    return minimal, maximum
 
 
-def minAndMaxPrice(tours, city):
-    maximum = -1
-    minimal = sys.maxsize
+def min_and_max_price(tours, city):
+    maximum = float("-inf")
+    minimal = float("inf")
     for i in range(1, len(tours.keys())):
         if tours[i]["departure"] == city and tours[i]["price"] > maximum:
             maximum = tours[i]["price"]
         if tours[i]["departure"] == city and tours[i]["price"] < minimal:
             minimal = tours[i]["price"]
-    tmp = [minimal, maximum]
-    return tmp
+    return minimal, maximum
 
 
 @app.route('/')
 def render_main():
-    random = randomTour(tours=data.tours)
+    random = random_tour(tours=data.tours)
     return render_template(
         "index.html", title=data.title, subtitle=data.subtitle, description=data.description,
         departures=data.departures, tours=data.tours, random=random)
@@ -66,9 +64,9 @@ def render_main():
 
 @app.route("/departure/<city>/")
 def render_departure(city):
-    price = minAndMaxPrice(tours=data.tours, city=city)
-    nights = minAndMaxNights(tours=data.tours, city=city)
-    word = correctWord(countTours(tours=data.tours, city=city))
+    price = min_and_max_price(tours=data.tours, city=city)
+    nights = min_and_max_nights(tours=data.tours, city=city)
+    word = correct_word(count_tours(tours=data.tours, city=city))
     length = len(data.tours)
     if city in data.departures:
         return render_template(
