@@ -10,102 +10,23 @@
     </section>
     <!-- CARDS -->
     <div class="row mt-5">
+        {% for i in range (6) %}
         <div class="col-4">
             <div class="card mb-4">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <img class="card-img-top embed-responsive-item" src={{tours[random[0]]["picture"]}} alt=""/>
+                    <img class="card-img-top embed-responsive-item" src={{tours[random[i]]["picture"]}} alt=""/>
                 </div>
                 <div class="card-body">
-                    <h2 class="h5 card-title">{{ tours[random[0]]["country"] }}: {{ tours[random[0]]["title"] }}
-                        {{ tours[random[0]]["stars"] }}&#9733;</h2>
-                    <p class="card-text;">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <h2 class="h5 card-title" style="font-size: 18px">{{ tours[random[0]]["date"] }},
-                        {{ tours[random[0]]["nights"] }} ночей, {{ tours[random[0]]["price"] }} Р</h2>
+                    <h2 class="h5 card-title">{{ tours[random[i]]["country"] }}: {{ tours[random[i]]["title"] }}
+                        {{ tours[random[i]]["stars"] }}&#9733;</h2>
+                    <p class="card-text;">{{ tours[random[i]]["description"]|truncate(75) }}</p>
+                    <h2 class="h5 card-title" style="font-size: 18px">{{ tours[random[i]]["date"] }},
+                        {{ tours[random[i]]["nights"] }} ночей, {{ tours[random[i]]["price"] }} Р</h2>
                     <a href="/tours/{{ tours[random[0]]['title'].split(' ')[0] }}" class="btn btn-sm btn-primary">Подробнее</a>
                 </div>
             </div>
         </div>
-        <div class="col-4">
-            <div class="card mb-4">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <img class="card-img-top embed-responsive-item" src={{tours[random[1]]["picture"]}} alt=""/>
-                </div>
-                <div class="card-body">
-                    <h2 class="h5 card-title">{{ tours[random[1]]["country"] }}: {{ tours[random[1]]["title"] }}
-                        {{ tours[random[1]]["stars"] }}&#9733;</h2>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <h2 class="h5 card-title" style="font-size: 18px">{{ tours[random[1]]["date"] }},
-                        {{ tours[random[1]]["nights"] }} ночей, {{ tours[random[1]]["price"] }} Р</h2>
-                    <a href="/tours/{{tours[random[1]]['title'].split(' ')[0]}}" class="btn btn-sm btn-primary">Подробнее</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card mb-4">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <img class="card-img-top embed-responsive-item" src={{tours[random[2]]["picture"]}} alt=""/>
-                </div>
-                <div class="card-body">
-                    <h2 class="h5 card-title">{{ tours[random[2]]["country"] }}: {{ tours[random[2]]["title"] }}
-                        {{ tours[random[2]]["stars"] }}&#9733;</h2>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <h2 class="h5 card-title" style="font-size: 18px">{{ tours[random[2]]["date"] }},
-                        {{ tours[random[2]]["nights"] }} ночей, {{ tours[random[2]]["price"] }} Р</h2>
-                    <a href="/tours/{{tours[random[2]]['title'].split(' ')[0]}}" class="btn btn-sm btn-primary">Подробнее</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card mb-4">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <img class="card-img-top embed-responsive-item" src={{tours[random[3]]["picture"]}} alt=""/>
-                </div>
-                <div class="card-body">
-                    <h2 class="h5 card-title">{{ tours[random[3]]["country"] }}: {{ tours[random[3]]["title"] }}
-                        {{ tours[random[3]]["stars"] }}&#9733;</h2>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <h2 class="h5 card-title" style="font-size: 18px">{{ tours[random[3]]["date"] }},
-                        {{ tours[random[3]]["nights"] }} ночей, {{ tours[random[3]]["price"] }} Р</h2>
-                    <a href="/tours/{{tours[random[3]]['title'].split(' ')[0]}}" class="btn btn-sm btn-primary">Подробнее</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card mb-4">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <img class="card-img-top embed-responsive-item" src={{tours[random[4]]["picture"]}} alt=""/>
-                </div>
-                <div class="card-body">
-                    <h2 class="h5 card-title">{{ tours[random[4]]["country"] }}: {{ tours[random[4]]["title"] }}
-                        {{ tours[random[4]]["stars"] }}&#9733;</h2>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <h2 class="h5 card-title" style="font-size: 18px">{{ tours[random[4]]["date"] }},
-                        {{ tours[random[4]]["nights"] }} ночей, {{ tours[random[4]]["price"] }} Р</h2>
-                    <a href="/tours/{{tours[random[4]]['title'].split(' ')[0]}}" class="btn btn-sm btn-primary">Подробнее</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card mb-4">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <img class="card-img-top embed-responsive-item" src={{tours[random[5]]["picture"]}} alt=""/>
-                </div>
-                <div class="card-body">
-                    <h2 class="h5 card-title">{{ tours[random[5]]["country"] }}: {{ tours[random[5]]["title"] }}
-                        {{ tours[random[5]]["stars"] }}&#9733;</h2>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <h2 class="h5 card-title" style="font-size: 18px">{{ tours[random[5]]["date"] }},
-                        {{ tours[random[5]]["nights"] }} ночей, {{ tours[random[5]]["price"] }} Р</h2>
-                    <a href="/tours/{{tours[random[5]]['title'].split(' ')[0]}}" class="btn btn-sm btn-primary">Подробнее</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </main>
 {% endblock %}
